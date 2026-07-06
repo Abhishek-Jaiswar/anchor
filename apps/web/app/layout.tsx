@@ -3,6 +3,7 @@ import { Geist_Mono, Inter } from "next/font/google"
 import "@workspace/ui/globals.css"
 import { cn } from "@workspace/ui/lib/utils"
 import Provider from "@/components/provider"
+import { ClerkProvider } from "@clerk/nextjs"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -28,7 +29,9 @@ export default function RootLayout({
       )}
     >
       <body>
-        <Provider>{children}</Provider>
+        <ClerkProvider>
+          <Provider>{children}</Provider>
+        </ClerkProvider>
       </body>
     </html>
   )
